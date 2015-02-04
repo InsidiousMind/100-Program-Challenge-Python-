@@ -45,13 +45,24 @@ def genName(list):
   secondPart = chooseItem(list, 3)
   return firstPart + secondPart
 
+def promptUser():
+  numOfNames = input("How Many Names Would You Like to Generate?")
+  count = 0
+  try:
+    numOfNames = int(numOfNames)
+    while count < numOfNames:
+      print(genName(names))
+      count += 1
+  except ValueError:
+    print("Please Enter a Number")
+
 #parse the names, syllabalizing them
 names = parseNames('nameDB.csv')
 
 
 print("Welcome to the Random Name Generator by Liquid Think!")
 print("Heres Your Name!:")
-print(genName(names))
+promptUser()
 
 
 
