@@ -1,3 +1,4 @@
+#REQUIRES a Name Database. In this case, nameDB.csv :)
 import csv
 import random
 from hyphen import Hyphenator
