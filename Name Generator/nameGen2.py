@@ -51,7 +51,7 @@ def chooseItem(list, place):
         thirdIndex = sample(list)
       return thirdIndex[2]
   except IndexError:
-    print("Whoops! Looks like we came accross an empty name object. :(")
+    print("Whoops! Looks like we came across an empty name object. :(")
 
 #generate a name using "Choose Item". Try to concatenate them, if not,
 #it will spit out null
