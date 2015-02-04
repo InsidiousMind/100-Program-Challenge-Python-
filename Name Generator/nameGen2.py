@@ -31,20 +31,23 @@ def sample(items):
 def chooseItem(list, place):
   #just a local variable
   thirdIndex = sample(list)
-
-  if place == 1:
-    return sample(list)[0]
-  elif place == 3:
-    while len(thirdIndex) != 3:
-      thirdIndex = sample(list)
-    return thirdIndex[2]
-
+  try:
+    if place == 1:
+      return sample(list)[0]
+    elif place == 3:
+      while len(thirdIndex) != 3:
+        thirdIndex = sample(list)
+      return thirdIndex[2]
+  except IndexError:
+    print("Whoops! Looks like we came accross an empty name object. :(")
 
 def genName(list):
   firstPart = chooseItem(list, 1)
   secondPart = chooseItem(list, 3)
-  return firstPart + secondPart
-
+  try:
+    return firstPart + secondPart
+  except TypeError:
+    print("null")
 def promptUser():
   numOfNames = input("How Many Names Would You Like to Generate?")
   count = 0
