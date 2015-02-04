@@ -1,39 +1,64 @@
+import csv
 import random
+from hyphen import Hyphenator
+from hyphen.dictools import *
+
+def syllabizeNames(nameList):
+  tempList = []
+  for lang in ['en_US']:
+    if not is_installed(lang): install(lang)
+  en_US = Hyphenator('en_US')
+  for item in nameList:
+    tempList.append(en_US.syllables(item))
+  return tempList
+
+def parseNames(nameFile):
+  tempList = []
+  csv_f = open(nameFile)
+  try:
+    reader = csv.reader(csv_f)
+    for row in reader:
+      tempList.append(row[0])
+  finally:
+    csv_f.close()
+  return syllabizeNames(tempList)
+
+def sample(items):
+    randomIndex = random.randrange(len(items))
+    return items[randomIndex]
 
 
+def chooseItem(list, place):
+  #just a local variable
+  thirdIndex = sample(list)
+
+  if place == 1:
+    return sample(list)[0]
+  elif place == 3:
+    while len(thirdIndex) != 3:
+      thirdIndex = sample(list)
+    return thirdIndex[2]
 
 
-def genName():
+def genName(list):
+  firstPart = chooseItem(list, 1)
+  secondPart = chooseItem(list, 3)
+  return firstPart + secondPart
 
-    boyNames = {0: "Jack",1: "Andrew", 2: "Mike",3: "Terry",4: "Torvald", 5: "Gatsby"}
-    girlNames = {0: "Alice", 1: "Hana", 2: "Clare", 3: "Janet", 4: "Daisy"}
-    genderList = {0: "M", 1: "F"}
-    randGender = random.randrange(0, 2)
-    randGirlName = random.randrange(0, len(girlNames))
-    randBoyName = random.randrange(0, len(boyNames))
+#parse the names, syllabalizing them
+names = parseNames('nameDB.csv')
 
-    askGender = raw_input("What Name Gender would you like? (m/f) (enter 'r' for random)")
-    askGender = askGender.lower()
+#longestItem = 0
+#or item in names:
+#  if len(item) > longestItem:
+#    longestItem = len(item)
+#    print(item)
+#print (longestItem)
 
-    if askGender != "m":
-        if askGender != "r":
-            if askGender !="f":
-                print "please enter 'M' ,'F', or 'R' to initiate the Random Name Generator"
-    if askGender == "r":
-        if genderList[randGender] == "m":
-            return boyNames[randBoyName]
-        else:
-            return girlNames[randGirlName]
+print("Welcome to the Random Name Generator by Liquid Think!")
+print("Heres Your Name!:")
+print(genName(names))
 
-    if askGender == "m":
-        return boyNames[randBoyName]
-    elif askGender == "f":
-        return girlNames[randGirlName]
-
-
-
-print "Welcome to the Simple Random Name Generator by Liquid Think!"
-print genName()
 
 
 
