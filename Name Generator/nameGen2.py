@@ -48,12 +48,6 @@ def genName(list):
 #parse the names, syllabalizing them
 names = parseNames('nameDB.csv')
 
-#longestItem = 0
-#or item in names:
-#  if len(item) > longestItem:
-#    longestItem = len(item)
-#    print(item)
-#print (longestItem)
 
 print("Welcome to the Random Name Generator by Liquid Think!")
 print("Heres Your Name!:")
