@@ -81,8 +81,8 @@ names = parseNames('nameDB.csv')
 
 #Viola!
 print("Welcome to the Random Name Generator by Liquid Think!")
-print("Heres Your Name!:")
 promptUser()
+print("Here are Your Name(s)!:")
 
 
 
