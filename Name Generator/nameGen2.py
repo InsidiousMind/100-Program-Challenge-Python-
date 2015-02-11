@@ -11,6 +11,7 @@ import random
 from hyphen import Hyphenator
 from hyphen.dictools import *
 
+
 #Split all the names in the list into syllables using pyhyphen
 def syllabizeNames(nameList):
   tempList = []
@@ -75,6 +76,7 @@ def promptUser():
       count += 1
   except ValueError:
     print("Please Enter a Number")
+    promptUser()
 
 #parse the names, syllabalizing them
 names = parseNames('nameDB.csv')
@@ -82,7 +84,7 @@ names = parseNames('nameDB.csv')
 #Viola!
 print("Welcome to the Random Name Generator by Liquid Think!")
 promptUser()
-print("Here are Your Name(s)!:")
+print("Here are Your Name(s)!")
 
 
 
