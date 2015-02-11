@@ -1,14 +1,21 @@
 import random
 
-numOfCoins = 0
+
+def flipManyCoins(numOfCoins):
+    for item in numOfCoins:
 
 
 def flipCoin(string):
     if string == "fifty":
-        randnum
+        randnum = random.randrange(1)
+        if randnum == 0:
+            print("heads!")
+        else:
+            print("tails!")
     elif string == "chance":
         print("How many coins do you like to flip?")
         answer = input()
+
 
 
 def promptUser():
