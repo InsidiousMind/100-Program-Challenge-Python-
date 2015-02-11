@@ -22,6 +22,8 @@ def flipCoin(string):
 
 
 def promptUser():
+    print("Heads/Tails or Higher/Lower?")
+    answer = input()
     print("Are You Playing for a 50/50 flip? (Y/n)")
     Yn = input()
     if Yn == "Y":
