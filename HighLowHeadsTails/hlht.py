@@ -2,8 +2,10 @@ import random
 
 
 def flipManyCoins(numOfCoins):
-    for item in numOfCoins:
-
+    count = 0
+    while count < numOfCoins:
+       flipCoin(numOfCoins)
+       count += 1 
 
 def flipCoin(string):
     if string == "fifty":
@@ -15,6 +17,12 @@ def flipCoin(string):
     elif string == "chance":
         print("How many coins do you like to flip?")
         answer = input()
+        isInt = isinstance(int(answer), int)
+        if isInt == False:
+            print("please enter a number")
+            flipCoin()
+        else:
+            flipManyCoins(int(answer))
 
 
 
@@ -34,6 +42,7 @@ def isCoinFlip():
     elif Yn == "n":
         flipCoin("chance")
 def isHigherLower():
-    pass
+    print("The unfinished Higher/Lower Method!")
+ 
 
-
+promptUser()
