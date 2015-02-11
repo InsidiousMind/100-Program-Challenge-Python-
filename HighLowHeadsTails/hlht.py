@@ -19,8 +19,6 @@ def flipCoin(string):
         flipManyCoins(int(answer))
 
 
-
-
 def promptUser():
     print("Are You Playing for a 50/50 flip? (Y/n)")
     Yn = input()
