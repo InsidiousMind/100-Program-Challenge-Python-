@@ -2,22 +2,19 @@ import random
 
 
 def flipManyCoins(numOfCoins):
-    count = 0
-    while count < numOfCoins:
-        flipCoin("fifty")
-        count += 1
+    for item in numOfCoins:
+
+
 def flipCoin(string):
     if string == "fifty":
         randnum = random.randrange(1)
         if randnum == 0:
             print("heads!")
-        elif randnum == 1:
+        else:
             print("tails!")
     elif string == "chance":
         print("How many coins do you like to flip?")
         answer = input()
-        flipManyCoins(int(answer))
-
 
 
 
