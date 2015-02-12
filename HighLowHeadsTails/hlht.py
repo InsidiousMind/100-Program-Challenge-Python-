@@ -15,15 +15,12 @@ def flipManyCoins(numOfCoins):
         count += 1
     return 'You Had %d Tails and %d Heads!' % (tailCount, headCount)
 
-
-
 def flipACoin():
     randNum = pickRandom(2)
     if randNum == 0:
        return "heads"
     else:
         return "tails"
-
 
 def flipCoin(string):
     if string == "fifty":
@@ -92,6 +89,5 @@ def isHigherLower():
     else:
         pickANum()
 
-
-
+print("Welcome to Coin Toss or Higher Lower!")
 promptUser()
