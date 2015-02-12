@@ -1,28 +1,30 @@
 import random
 
-
+def pickRandom(range):
+    randnum = random.randrange(range)
+    return randnum
 def flipManyCoins(numOfCoins):
     count = 0
     while count < numOfCoins:
-       flipCoin(numOfCoins)
-       count += 1 
+       flipCoin("fifty")
+       count += 1
+
 
 def flipCoin(string):
     if string == "fifty":
-        randnum = random.randrange(1)
-        if randnum == 0:
+        randNum = pickRandom(2)
+        if randNum == 0:
             print("heads!")
         else:
             print("tails!")
     elif string == "chance":
-        print("How many coins do you like to flip?")
+        print("How many coins would you like to flip?")
         answer = input()
-        isInt = isinstance(int(answer), int)
-        if isInt == False:
-            print("please enter a number")
-            flipCoin()
-        else:
+        try:
             flipManyCoins(int(answer))
+        except ValueError:
+            print("please enter a number")
+            flipCoin("chance")
 
 def promptUser():
     print("CoinFlip or Higher/Lower?(C/H)")
@@ -32,15 +34,52 @@ def promptUser():
     elif answer == "H":
         isHigherLower()
 
-def isCoinFlip(): 
+def isCoinFlip():
     print("Are You Playing for a 50/50 flip? (Y/n)")
     Yn = input()
     if Yn == "Y":
         flipCoin("fifty")
     elif Yn == "n":
         flipCoin("chance")
+
+def pickANum():
+    print("Pick a number from 1-100")
+    answer = input()
+    try:
+        if int(answer) > 100:
+            print ("please pick a number from 1 to 100")
+        else:
+            aRand = pickRandom(101)
+            if int(answer) < aRand:
+                print("Lower!")
+                print("The Random Number Picked:",aRand)
+            elif int(answer) > aRand:
+                print("Higher!")
+                print("The Number Picked:", aRand)
+            else:
+                print("Whoa! You got even!")
+    except ValueError:
+        print("please enter a NUMBER")
+        pickANum()
+
+def numPicked():
+    firstRand = pickRandom(101)
+    secRand = pickRandom(101)
+    print("Your random number is:",firstRand)
+    if firstRand < secRand:
+        print("LOWER!")
+        print("The Higher Number Picked:", secRand)
+    else:
+        print("HIGHER!")
+        print("The Lower Number Picked:", secRand)
+
 def isHigherLower():
-    print("The unfinished Higher/Lower Method!")
- 
+    print("Do you want a number picked for you? (Y/n)")
+    if input() == "Y":
+        numPicked()
+    else:
+        pickANum()
+
+
 
 promptUser()
