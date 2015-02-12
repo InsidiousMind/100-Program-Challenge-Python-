@@ -5,23 +5,34 @@ def pickRandom(range):
     return randnum
 def flipManyCoins(numOfCoins):
     count = 0
+    headCount = 0
+    tailCount = 0
     while count < numOfCoins:
-       flipCoin("fifty")
-       count += 1
+        if flipACoin() == "heads":
+            headCount += 1
+        else:
+            tailCount += 1
+        count += 1
+    return 'You Had %d Tails and %d Heads!' % (tailCount, headCount)
+
+
+
+def flipACoin():
+    randNum = pickRandom(2)
+    if randNum == 0:
+       return "heads"
+    else:
+        return "tails"
 
 
 def flipCoin(string):
     if string == "fifty":
-        randNum = pickRandom(2)
-        if randNum == 0:
-            print("heads!")
-        else:
-            print("tails!")
+        print(flipACoin())
     elif string == "chance":
         print("How many coins would you like to flip?")
         answer = input()
         try:
-            flipManyCoins(int(answer))
+            print(flipManyCoins(int(answer)))
         except ValueError:
             print("please enter a number")
             flipCoin("chance")
@@ -43,11 +54,12 @@ def isCoinFlip():
         flipCoin("chance")
 
 def pickANum():
-    print("Pick a number from 1-100")
+    print("Pick a number from 1-99")
     answer = input()
     try:
-        if int(answer) > 100:
-            print ("please pick a number from 1 to 100")
+        if int(answer) > 99:
+            print ("please pick a number from 1 to 99")
+            pickANum()
         else:
             aRand = pickRandom(101)
             if int(answer) < aRand:
