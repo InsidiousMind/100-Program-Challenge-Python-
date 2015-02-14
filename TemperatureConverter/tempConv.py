@@ -1,8 +1,5 @@
-
 def convTemp():
     pass
-
-
 
 print("From What Temperature are you Converting From?((K)elvin,(C)elsius,(F)areinheight")
 unitFrom = input()
@@ -15,4 +12,10 @@ def CK(cOrK):
     pass
 def FK(fOrK):
     pass
-def
+def hi():
+    print("hi!")
+def hi():
+    pass
+
+hi()
+
