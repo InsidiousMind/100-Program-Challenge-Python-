@@ -14,11 +14,11 @@ def convTemp(temp, unit):
     testInput(temp, unit)
     temp1 = float(temp)
     if unit == "C":
-        print( "It's %d Fareignheight, and %d Kelvin!" % (C_F(temp1), C_K(temp1)))
+        print( "It's %.2f Fareignheight, and %.2f Kelvin!" % (C_F(temp1), C_K(temp1)))
     elif unit == "F":
-        print("It's %d Celsius, and %d Kelvin!" % (F_C(temp1), F_K(temp1)))
+        print("It's %.2f Celsius, and %.2f Kelvin!" % (F_C(temp1), F_K(temp1)))
     elif unit == "K":
-        print( "It's %d Celsius, and %d Fareignheight!" % (K_C(temp1), F_K(temp1)))
+        print( "It's %.2f Celsius, and %.2f Fareignheight!" % (K_C(temp1), F_K(temp1)))
 
 def promptUser():
     print("What's the Temperature?")
@@ -35,19 +35,11 @@ def F_K(a):
     return C_F(a)
 
 def C_F(a):
-    answer = 0
-    answer = int(a)
-    answer *= 9
-    answer /= 5
-    answer += 32
-    return answer
+    return ((a*9)/5)+32
+
 
 def F_C(a):
-    answer = int(a)
-    answer -= 32
-    answer *= 5
-    answer /= 9
-    return answer
+    return ((a - 32) * 5)/9
 
 def K_C(a):
     return a - 273.15
